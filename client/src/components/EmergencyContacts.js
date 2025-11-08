@@ -20,9 +20,10 @@ const EmergencyContacts = () => {
       // Fallback emergency contacts
       setContacts({
         us: {
-          suicide: "988 - Suicide & Crisis Lifeline",
-          crisis: "988 - Crisis Text Line (text HOME to 741741)",
-          general: "211 - Community Resources and Information"
+          suicide: "9152987821 - Aasra Suicide Prevention Helpline (24x7)",
+          national_helpline: "1800-599-0019 - National Mental Health Helpline",
+          ambulance: "102 - Medical Emergency Ambulance",
+          police: "100 - Police Emergency"
         },
         international: {
           uk: "116 123 - Samaritans",
@@ -72,18 +73,18 @@ const EmergencyContacts = () => {
           <div className="contact-section">
             <h4>
               <Phone size={20} />
-              United States Crisis Lines
+              India Crisis Helpline Numbers
             </h4>
             <div className="contact-list">
               <div className="contact-item emergency">
                 <div className="contact-info">
                   <div className="contact-name">Emergency Services</div>
                   <div className="contact-description">For immediate danger</div>
-                  <div className="contact-number">911</div>
+                  <div className="contact-number">100</div>
                 </div>
                 <button 
                   className="contact-button emergency-btn"
-                  onClick={() => handleCall('911')}
+                  onClick={() => handleCall('100')}
                 >
                   <Phone size={20} />
                   Call Now

@@ -47,7 +47,13 @@ const responses = {
   crisis: [
     "I'm concerned about your safety. If you're having thoughts of hurting yourself, please reach out to a crisis helpline immediately.",
     "Your safety is the most important thing. Please contact emergency services or a crisis helpline if you're in immediate danger."
-  ]
+  ],
+  happy: [
+    "That's wonderful to hear! Tell me more about what's making you feel happy.",
+    "I'm really glad you're feeling good! What made your day better?",
+    "That's great! Happiness is worth celebrating. What's bringing you joy today?"
+  ],
+
 };
 
 
@@ -145,6 +151,12 @@ function detectMood(message) {
       lowerMessage.includes("end it all") || lowerMessage.includes("not worth living")) {
     return "crisis";
   }
+  if (lowerMessage.includes("happy") || lowerMessage.includes("excited") ||
+      lowerMessage.includes("joy") || lowerMessage.includes("great") ||
+      lowerMessage.includes("good mood")) {
+    return "happy";
+  }
+
 
   if (lowerMessage.includes("anxious") || lowerMessage.includes("anxiety") ||
       lowerMessage.includes("worried") || lowerMessage.includes("panic")) {
@@ -224,7 +236,9 @@ function getSuggestions(mood) {
     depression: ["Do one small positive activity", "Reach out to someone you trust", "Get some sunlight"],
     stress: ["Take a break", "Practice time management", "Try relaxation techniques"],
     loneliness: ["Connect with a friend", "Join a community activity", "Practice self-compassion"],
-    general: ["Take care of yourself", "Be patient with yourself", "Remember you're not alone"]
+    general: ["Take care of yourself", "Be patient with yourself", "Remember you're not alone"],
+    happy: ["Enjoy the moment!", "Share your happiness with someone you care about.", "Keep doing what makes you feel this way!"],
+
   };
 
   return suggestions[mood] || suggestions.general;
@@ -240,9 +254,6 @@ function getMoodResources(mood) {
 }
 
 
-// -------------------------------
-// ✅ Emergency Contacts Function (FIXED)
-// -------------------------------
 
 function getEmergencyContacts() {
   return emergencyContacts;
